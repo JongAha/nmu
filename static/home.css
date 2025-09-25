@@ -1,0 +1,589 @@
+.topMargion{
+    height: 50px !important;
+}
+.section1{
+    background-color: #111847;
+    text-align: center;
+}
+.section1-box{
+    position: relative;
+}
+.section1-text{
+    position: absolute;
+    display: inline-block;
+    color: #111847;
+    margin-top: 50px;
+    padding: 20px 0px 10px 30px;
+}
+.section1-text p{
+    font-weight: bold;
+    font-size: 48px;
+    text-align: start;
+}
+.section1-box img{
+    width: 100%;
+    height: auto;
+}
+
+.section2{
+    background-color: #111847;
+    padding: 20px 10px 20px 30px;
+}
+.section2-text p{
+    color: white;
+    font-weight: bold;
+    font-size: 48px;
+    text-align: start;
+    margin-bottom: 10px;
+}
+.section2-img{
+    display: flex;
+    justify-content:space-between;
+}
+.section2-img img{
+    width: 33%;
+    height: auto;
+    object-fit: contain;
+    border-radius: 10px;
+}
+
+.imgFloat1 {
+    width: 100%;
+    height: auto;
+    object-fit: contain;
+    border-radius: 10px;
+    animation: float 3s ease-in-out infinite; 
+}
+.imgFloat2 {
+    width: 100%;
+    height: auto;
+    object-fit: contain;
+    border-radius: 10px;
+    animation: float 3.5s ease-in-out infinite;
+}
+.imgFloat3 {
+    width: 100%;
+    height: auto;
+    object-fit: contain;
+    border-radius: 10px;
+    animation: float 2.5s ease-in-out infinite;
+}
+
+@keyframes float {
+    0% {
+        transform: translateY(0); /* 初始位置 */
+    }
+    50% {
+        transform: translateY(-20px); /* 向上移动 10px */
+    }
+    100% {
+        transform: translateY(0); /* 返回初始位置 */
+    }
+}
+
+
+
+.section3 {
+    display: flex;
+    width: 100%;
+    margin-top: 50px;
+}
+.section3-left {
+    flex: 2;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.clicktxt{
+    position: absolute;
+    top: 70%;
+    left: 5%;
+    rotate: -20deg;
+    font-size: 28px;
+    color: white;
+    font-weight: bold;
+    z-index: 2;
+}
+.section3-left img {
+    width: 80%;
+    height: auto;
+    cursor: pointer;
+    transition: transform 1s ease, opacity 0.8s ease;
+    rotate: -10deg;
+}
+.bg-shape{
+    position: absolute;
+    top: 38%;
+    left: 8%;
+    width: 22%;
+    height: 44%;
+    background: linear-gradient(135deg, #67b1f1 0%, #c8e1f5 100%);
+    border-radius: 50%;
+    z-index: 0;
+    transform: rotate(-10deg);
+}
+
+.section3-left img:hover {
+    transform: scale(1.2);
+}
+
+.section3-right {
+    flex: 3;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    padding: 20px;
+}
+
+.section3-text {
+    color: #ffffff;
+    font-size: 48px;
+    line-height: 1.6;
+    font-weight: bold;
+    text-align: start;
+    margin-bottom: 20px;
+    flex: 1;
+}
+
+.section3-images {
+    display: flex;
+    flex: 1;
+    justify-content: space-around;
+    align-items: flex-start;
+    position: relative;
+}
+
+.image-container {
+    position: relative;
+    width: 30%;
+}
+
+.image-container img {
+    width: 100%;
+    height: auto;
+    z-index: 2;
+    position: relative;
+    animation: float 3s ease-in-out infinite;
+}
+
+.image-container .bg-shape1 {
+    position: absolute;
+    top: 10%;
+    left: 0%;
+    width: 85%;
+    height: 75%;
+    background: #b6c7ea;
+    border-radius: 50%;
+    z-index: 1;
+    transform: rotate(-10deg);
+}
+.image-container .bg-shape2 {
+    position: absolute;
+    top: 10%;
+    left: 0%;
+    width: 85%;
+    height: 75%;
+    background: #a6cfed;
+    border-radius: 50%;
+    z-index: 1;
+    transform: rotate(-10deg);
+}
+.image-container .bg-shape3 {
+    position: absolute;
+    top: 10%;
+    left: 0%;
+    width: 85%;
+    height: 75%;
+    background: #a9e9e4;
+    border-radius: 50%;
+    z-index: 1;
+    transform: rotate(-10deg);
+}
+
+/* 调整三张图片的高度形成三角形排列 */
+.image-container:nth-child(1) img {
+    height: 250px;
+}
+
+.image-container:nth-child(2) img {
+    height: 400px;
+    rotate: 50deg;
+}
+
+.image-container:nth-child(3) img {
+    height: 180px;
+    rotate: -50deg;
+}
+
+
+.section4 {
+    display: flex;
+    width: 100%;
+    margin-top: 50px;
+}
+
+.section4-left {
+    flex: 2;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.clicktxt {
+    position: absolute;
+    top: 70%;
+    left: 5%;
+    rotate: -20deg;
+    font-size: 28px;
+    color: white;
+    font-weight: bold;
+    z-index: 2;
+}
+
+.section4-left img {
+    width: 80%;
+    height: auto;
+    cursor: pointer;
+    transition: transform 1s ease, opacity 0.8s ease;
+    rotate: -10deg;
+}
+
+.bg-shape {
+    position: absolute;
+    top: 38%;
+    left: 8%;
+    width: 22%;
+    height: 44%;
+    background: linear-gradient(135deg, #67b1f1 0%, #c8e1f5 100%);
+    border-radius: 50%;
+    z-index: 0;
+    transform: rotate(-10deg);
+}
+
+.section4-left img:hover {
+    transform: scale(1.2);
+}
+
+.section4-right {
+    flex: 3;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    padding: 20px;
+}
+
+.section4-text {
+    color: #ffffff;
+    font-size: 40px;
+    line-height: 1.6;
+    font-weight: bold;
+    text-align: start;
+    padding-right: 80px;
+    margin-bottom: 20px;
+    flex: 1;
+}
+
+.section4-images {
+    display: flex;
+    flex: 1;
+    justify-content: space-around;
+    align-items: flex-start;
+    position: relative;
+}
+
+
+.section5 {
+    display: flex;
+    width: 100%;
+    height: 100vh;
+    background-color: #111847;
+}
+.section5-left {
+    flex: 1;
+    position: relative;
+}
+.background-slant {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    border-radius: 20px;
+    z-index: 2;
+}
+.background-slant img {
+    width: 130%;
+    height: 100%;
+    object-fit: cover;
+    z-index: 9; 
+    position: relative;
+}
+.large-image-container {
+    position: relative;
+    width: 100%;
+    height: 100%;
+    z-index: 2;
+}
+.large-image {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+.top-banner,
+.middle-banner {
+    position: absolute;
+    display: flex;
+    height: 80px;
+    align-items: center;
+    background-color: #d4f4f1;
+    padding: 10px 20px;
+    z-index: -1;
+    border-radius: 10px;
+}
+
+.top-banner {
+    top: 10%;
+    left: 5%;
+    width: 80%;
+    justify-content: space-between;
+}
+
+.middle-banner {
+    top: 45%;
+    left: 65%;
+    width: 40%;
+    transform: translateY(-50%);
+}
+
+.banner-text {
+    flex: 1;
+    font-size: 36px;
+    max-width: 80%;
+    text-align: start;
+    font-weight: bold;
+    color: #333;
+    margin-left: 10px;
+}
+
+.banner-image {
+    width: 60px;
+    height: 60px;
+    border-radius: 50%;
+    background-color: #ffffff;
+    margin-left: 10px;
+}
+
+.section5-right {
+    flex: 1;
+    display: flex;
+    justify-content: center;
+    align-items: start;
+    padding: 20px;
+}
+
+.section5-text {
+    font-size: 48px;
+    line-height: 1.6;
+    color: #ffffff;
+    text-align: start;
+    font-weight: bold;
+    padding-left: 15%;
+    padding-right: 10px;
+}
+
+
+.section6 {
+    width: 100%;
+    padding: 50px 20px 10px 20px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    background-color: #111847;
+}
+.section6-top {
+    justify-items: center;
+    text-align: center;
+}
+.section6-sentence {
+    font-size: 48px;
+    font-weight: 500;
+    max-width: 85%;
+    text-align: center;
+    color: #ffffff;
+}
+.section6-bottom {
+    display: flex;
+    width: 100%;
+    justify-content: space-between;
+}
+.section6-left {
+    flex: 1;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: relative;
+}
+.image-stack {
+    position: relative;
+    width: 80%;
+    max-width: 400px;
+}
+.image-back {
+    width: 100%;
+    height: auto;
+    position: absolute;
+    top: 20px;
+    left: 20px;
+    z-index: 1;
+    transform: rotate(-5deg);
+}
+.image-front {
+    width: 100%;
+    height: auto;
+    position: relative;
+    z-index: 2;
+}
+.section6-right {
+    flex: 1;
+    display: flex;
+    justify-content: center;
+    align-items: flex-start;
+    padding: 20px;
+}
+.section6-title {
+    font-size: 56px;
+    font-weight: bold;
+    color: #ffffff;
+    text-align: center;
+}
+
+
+
+.section7 {
+    width: 100%;
+    padding: 50px 20px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    background-color:#111847;
+    margin-bottom: 40px;
+}
+.section7-top {
+    width: 100%;
+    text-align: left;
+}
+.section7-text {
+    font-size: 48px;
+    font-weight: bold;
+    color: #ffffff;
+    margin-left: 20px;
+}
+.section7-bottom {
+    margin-top: -50px;
+    display: flex;
+    width: 100%;
+    align-items: end;
+    position: relative;
+}
+.section7-left {
+    flex: 1;
+    padding: 20px;
+}
+.section7-left img {
+    width: 100%;
+    transform: scale(1.8) rotate(-100deg);
+    height: 300px;
+    border-radius: 10px;
+    animation: floatMed 2.5s ease-in-out infinite;
+}
+@keyframes floatMed {
+    0% {
+        transform: translateY(0) scale(1.8) rotate(-100deg);
+        /* 初始位置 */
+    }
+
+    50% {
+        transform: translateY(-20px) scale(1.8) rotate(-100deg);
+        /* 向上移动 10px */
+    }
+
+    100% {
+        transform: translateY(0) scale(1.8) rotate(-100deg);
+        /* 返回初始位置 */
+    }
+}
+.section7-right {
+    flex: 4;
+    /* 右边占五分之四 */
+    position: relative;
+    display: flex;
+}
+.image-stack7 {
+    position: relative;
+    display: flex;
+    align-items: end;
+    justify-content: end;
+    width: 100%;
+    height: auto;
+}
+.image-back7 {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 20%;
+    height: auto;
+    transform: scale(0.5);
+    transform-origin: left bottom;
+    margin-left: -30px;
+    opacity: 0;
+    transition: transform 2s ease, opacity 1.5s ease, width 2s ease;
+    z-index: 1;
+}
+.image-front7 {
+    position: relative;
+    width: 50%;
+    height: auto;
+    z-index: 2;
+    border-radius: 10px;
+    object-fit: cover;
+}
+
+
+
+
+.section8 {
+    background-color: #111847;
+    text-align: center;
+}
+.section8-box {
+    position: relative;
+}
+.section8-text {
+    position: absolute;
+    display: inline-block;
+    color: #ffffff;
+    margin-top: 50px;
+    padding: 20px 0px 10px 30px;
+}
+.section8-text p {
+    font-weight: bold;
+    font-size: 48px;
+    text-align: start;
+}
+.section8-box img {
+    width: 100%;
+    height: auto;
+}
+
+
+
+
+
+
+
+
+
+
+.highlight {
+    color: #a9e9e4;
+}

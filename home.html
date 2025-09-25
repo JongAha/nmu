@@ -1,0 +1,504 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="./static/base.css">
+    <link rel="stylesheet" href="./static/style.css">
+    <link rel="stylesheet" href="./static/home.css">
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+    <script src="./static/jquery.min.js"></script>
+    <title>NMU</title>
+</head>
+
+<body>
+    <nav id="nav">
+        <!-- TEAM NAME -->
+        <a class="navbar-brand" href="{{ url_for('home') }}">
+            <img src="https://2025-nmu-china.puuluu.com/static/image/logo1.png" alt="Mangroves PEhunter" />
+        </a>
+
+
+        <ul class="navbar" id="navbar">
+            <!-- Home -->
+            <li class="nav-item" onmouseover="over(this)" onmouseleave="leave(this)">
+                <a href="{{ url_for('pages', page='home') }}">Home</a>
+            </li>
+            <!-- Project -->
+            <li id="project" class="nav-item" onmouseover="over(this)" onmouseleave="leave(this)">
+                <a href="#" style="cursor: default">Project</a>
+                <ul class="son">
+                    <li>
+                        <a href="{{ url_for('pages', page='description') }}">Description</a>
+                    </li>
+                    <li>
+                        <a href="{{ url_for('pages', page='entrepreneurship') }}">Entrepreneurship</a>
+                    </li>
+                    <li>
+                        <a href="{{ url_for('pages', page='education') }}">Education</a>
+                    </li>
+                    <li>
+                        <a href="{{ url_for('pages', page='product') }}">Product</a>
+                    </li>
+                </ul>
+            </li>
+            <!-- Safety -->
+            <li class="nav-item" onmouseover="over(this)" onmouseleave="leave(this)">
+                <a href="{{ url_for('pages', page='safety') }}">Safety</a>
+            </li>
+            <!-- Human Practices -->
+            <li class="nav-item" id="human-practice" onmouseover="over(this)" onmouseleave="leave(this)">
+                <a href="{{ url_for('pages', page='human-practices') }}">Human Practices</a>
+                <ul class="son">
+
+                    <li><a href="{{ url_for('pages', page='human-practices') }}">iHP</a></li>
+                    <li><a href="{{ url_for('pages', page='education') }}">Education</a></li>
+                    <li><a href="{{ url_for('pages', page='collaboration') }}">CO<sub
+                                style="font-size: 1.2vw;">2</sub>llaboration</a></li>
+                </ul>
+            </li>
+            <!-- Model -->
+            <li class="nav-item" onmouseover="over(this)" onmouseleave="leave(this)">
+                <a href="{{ url_for('pages', page='model') }}">Model</a>
+            </li>
+            <!-- Team -->
+            <li class="nav-item" onmouseover="over(this)" onmouseleave="leave(this)">
+                <a href="#" style="cursor: default">Team</a>
+                <ul class="son">
+                    <li><a href="{{ url_for('pages', page='team') }}">Roster</a></li>
+                    <li>
+                        <a href="{{ url_for('pages', page='attributions') }}">Attributions</a>
+                    </li>
+                    <li><a href="{{ url_for('pages', page='awards') }}">Awards</a></li>
+                </ul>
+            </li>
+
+        </ul>
+    </nav>
+
+
+
+    <div class="home-page">
+        <div class="topMargion"></div>
+        <div class="section1">
+            <div class="section1-box">
+                <div class="section1-text">
+                    <p>The invention of plastic has</p>
+                    <p>brought us great convenience.</p>
+                </div>
+                <img src="https://static.igem.wiki/teams/5847/home/14.webp" alt="">
+            </div>
+        </div>
+        <div class="home-margin4"></div>
+
+        <div class="section2">
+            <div class="section2-box">
+                <div class="section2-text">
+                    <p>Nowadays, it is everywhere.</p>
+                </div>
+                <div class="section2-img">
+                    <img class="imgFloat1" src="https://static.igem.wiki/teams/5847/home/02.webp" alt="">
+                    <img class="imgFloat2" src="https://static.igem.wiki/teams/5847/home/01.webp" alt="">
+                    <img class="imgFloat3" src="https://static.igem.wiki/teams/5847/home/15.webp" alt="">
+                </div>
+            </div>
+        </div>
+
+        <div class="section3">
+            <div class="section3-left">
+                <p class="clicktxt">Click me!</p>
+                <div class="bg-shape"></div>
+                <img id="toggleImage" src="https://static.igem.wiki/teams/5847/home/15.webp" alt="Left Image">
+            </div>
+            <div class="section3-right">
+                <div class="section3-text">
+                    <p>However, over the past few decades, plastic has been constantly breaking down into
+                        <span class="highlight">“microplastics”</span>, which are ingested by living organisms.
+                    </p>
+                </div>
+                <div class="section3-images">
+                    <div class="image-container">
+                        <div class="bg-shape1"></div>
+                        <img src="https://static.igem.wiki/teams/5847/home/06.webp" alt="Image 1">
+                    </div>
+                    <div class="image-container">
+                        <div class="bg-shape2"></div>
+                        <img src="https://static.igem.wiki/teams/5847/home/09.webp" alt="Image 2">
+                    </div>
+                    <div class="image-container">
+                        <div class="bg-shape3"></div>
+                        <img src="https://static.igem.wiki/teams/5847/home/08.webp" alt="Image 3">
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="section4">
+            <div class="section4-left">
+                <!-- <p class="clicktxt">Click me!</p> -->
+                <div class="bg-shape"></div>
+                <img src="https://static.igem.wiki/teams/5847/home/06.webp" alt="Left Image">
+            </div>
+            <div class="section4-right">
+                <div class="section4-images">
+                    <div class="image-container">
+                        <div class="bg-shape1"></div>
+                        <img src="https://static.igem.wiki/teams/5847/home/06.webp" alt="Image 1">
+                    </div>
+                    <div class="image-container">
+                        <div class="bg-shape2"></div>
+                        <img src="https://static.igem.wiki/teams/5847/home/09.webp" alt="Image 2">
+                    </div>
+                    <div class="image-container">
+                        <div class="bg-shape3"></div>
+                        <img src="https://static.igem.wiki/teams/5847/home/08.webp" alt="Image 3">
+                    </div>
+                </div>
+                <div class="section4-text">
+                    <p>There are <span id="counter" class="highlight" data-target="325"
+                            style="font-size: 68px;">325</span>
+                    </p>
+                    <p>
+                        microplastic particles in every liter of bottled water we drink.
+                    </p>
+                </div>
+            </div>
+        </div>
+
+        <div class="section5">
+            <div class="section5-left" data-aos="fade-right">
+                <div class="background-slant">
+                    <img src="./images/bg-white.png" alt="">
+                </div>
+                <div class="large-image-container">
+                    <img class="large-image" src="https://static.igem.wiki/teams/5847/home/03.webp" alt="Large Image">
+                    <div class="top-banner" data-aos="fade-right">
+                        <p class="banner-text">BLOATING</p>
+                        <img style="transform: rotateY(180deg);" class="banner-image"
+                            src="https://static.igem.wiki/teams/5847/home/05.webp" alt="Banner Image">
+                    </div>
+                    <div class="middle-banner" data-aos="fade-left">
+                        <p class="banner-text">DIARRHEA</p>
+                        <img class="banner-image" src="https://static.igem.wiki/teams/5847/home/04.webp"
+                            alt="Banner Image">
+                    </div>
+                </div>
+            </div>
+            <div class="section5-right" data-aos="fade-left">
+                <p class="section5-text">
+                    It is shown that plastic pollution has caused about <span class="highlight">230 million</span>
+                    people to experience gastrointestinal symptoms such as <span class="highlight">bloating</span> &
+                    <span class="highlight">diarrhea</span>.
+                </p>
+            </div>
+        </div>
+
+        <div class="section6">
+            <div class="section6-top" data-aos="fade-right">
+                <p class="section6-sentence">
+                    Fortunately, we modified the chassis bacteria and named it
+                </p>
+            </div>
+            <div class="section6-bottom">
+                <div class="section6-left" data-aos="fade-right">
+                    <div class="image-stack">
+                        <img class="image-back" src="./images/virBg.png" alt="Background Image">
+                        <img class="image-front" src="https://static.igem.wiki/teams/5847/home/10.webp"
+                            alt="Foreground Image">
+                    </div>
+                </div>
+                <div class="section6-right" data-aos="fade-left">
+                    <p class="section6-title">"EnteroPlastivore"</p>
+                </div>
+            </div>
+        </div>
+
+        <div class="section7">
+            <div class="section7-top">
+                <p class="section7-text">
+                    It will be encapsulated in a capsule to facilitate
+                </p>
+                <p class="section7-text">
+                    its entry into the body.
+                </p>
+            </div>
+            <div class="section7-bottom">
+                <div class="section7-left">
+                    <img class="left-image" src="https://static.igem.wiki/teams/5847/home/13.webp" alt="Left Image">
+                </div>
+                <div class="section7-right">
+                    <div class="image-stack7">
+                        <img class="image-back7" src="./images/medBg.png" alt="Background Image">
+                        <img class="image-front7" src="https://static.igem.wiki/teams/5847/home/12.webp"
+                            alt="Foreground Image">
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="section8">
+            <div class="section8-box">
+                <div class="section8-text">
+                    <p>Once you swallow the capsule,</p>
+                    <p>we will navigate through the tumultuous</p>
+                    <p>waves of the digestive system,</p>
+                    <p>and an exciting adventure will begin!</p>
+                </div>
+                <img src="https://static.igem.wiki/teams/5847/home/11.webp" alt="">
+            </div>
+        </div>
+
+
+
+    </div>
+
+
+
+
+    <footer>
+        <div class="ft2">
+            <img src="https://static.igem.wiki/teams/5291/images/ft-1-1.svg" alt="">
+            <img src="https://static.igem.wiki/teams/5291/images/ft-1-2.svg" alt="">
+            <img src="https://static.igem.wiki/teams/5291/images/ft-1-3.svg" alt="">
+        </div>
+        <div class="ft3">
+            <ul>
+                <li>
+                    <p>Team</p>
+                    <br>
+                    <a href="{{ url_for('pages', page='team') }}">
+                        <p>Roster</p>
+                    </a>
+                    <a href="{{ url_for('pages', page='attributions') }}">
+                        <p>Attributions</p>
+                    </a>
+                    <a href="{{ url_for('pages', page='awards') }}">
+                        <p>Awards</p>
+                    </a>
+                    <br>
+                    <br>
+                    <br>
+                    <br>
+                    <a href="{{ url_for('pages', page='home') }}">
+                        <p>Home</p>
+                    </a>
+                </li>
+                <li>
+                    <p>Project</p>
+                    <br>
+                    <a href="{{ url_for('pages', page='description') }}">
+                        <p>Description</p>
+                    </a>
+                    <a href="{{ url_for('pages', page='design') }}">
+                        <p>Design</p>
+                    </a>
+                    <a href="{{ url_for('pages', page='contribution') }}">
+                        <p>Contribution</p>
+                    </a>
+                    <a href="{{ url_for('pages', page='implementation') }}">
+                        <p>Implementation</p>
+                    </a>
+                    <a href="{{ url_for('pages', page='safety') }}">
+                        <p>Safety</p>
+                    </a>
+                    <br>
+                    <br>
+                    <a href="{{ url_for('pages', page='model') }}">
+                        <p>Model</p>
+                    </a>
+                </li>
+                <li>
+                    <p>Wet lab</p>
+                    <br>
+                    <a href="{{ url_for('pages', page='engineering') }}">
+                        <p>Engineering</p>
+                    </a>
+                    <a href="{{ url_for('pages', page='notebook') }}">
+                        <p>Notebook</p>
+                    </a>
+                    <a href="{{ url_for('pages', page='results') }}">
+                        <p>Results</p>
+                    </a>
+                    <a href="{{ url_for('pages', page='protocol') }}">
+                        <p>Protocol</p>
+                    </a>
+                    <a href="{{ url_for('pages', page='parts') }}">
+                        <p>Parts</p>
+                    </a>
+                    <a href="{{ url_for('pages', page='proof-of-concept') }}">
+                        <p>Proof of concept</p>
+                    </a>
+                    <br>
+                    <a href="{{ url_for('pages', page='hardware') }}">
+                        <p>Hardware</p>
+                    </a>
+                </li>
+                <li>
+                    <a href="{{ url_for('pages', page='human-practices') }}">
+                        <p>Human Practices</p>
+                    </a>
+                    <br>
+                    <a href="{{ url_for('pages', page='human-practices') }}">
+                        <p>iHP</p>
+                    </a>
+                    <a href="{{ url_for('pages', page='education') }}">
+                        <p>Education</p>
+                    </a>
+                    <a href="{{ url_for('pages', page='collaboration') }}">
+                        <p>CO<sub>2</sub>llaborations</p>
+                    </a>
+                </li>
+            </ul>
+            <div class="ftlogo">
+                <img src="https://static.igem.wiki/teams/5847/logo/logo3.webp" alt="">
+            </div>
+            <div class="ftlast">
+                <span class="mb-0"><small>© 2025 - Content on this site is licensed under a <a class="subfoot"
+                            href="https://creativecommons.org/licenses/by/4.0/" rel="license">Creative Commons
+                            Attribution 4.0
+                            International license</a>.</small></span>
+                <br>
+                <span><small>The repository used to create this website is available at <a
+                            href="https://gitlab.igem.org/2025/nmu-china">gitlab.igem.org/2025/nmu-china</a>.</small></span>
+            </div>
+        </div>
+
+    </footer>
+
+
+    <!-- home.js -->
+
+    <script>
+        AOS.init({
+            offset: 200,
+            duration: 1000,
+            easing: 'ease-in-sine',
+            delay: 100,
+        });
+
+        document.getElementById('toggleImage').addEventListener('click', function () {
+            const img = this;
+            const currentSrc = img.src;
+            const newSrc = currentSrc.includes('15.webp')
+                ? 'https://static.igem.wiki/teams/5847/home/06.webp'
+                : 'https://static.igem.wiki/teams/5847/home/15.webp';
+            img.style.opacity = 0; // 动画过渡
+            setTimeout(() => {
+                img.src = newSrc;
+                img.style.opacity = 1;
+            }, 300);
+        });
+
+        // 获取目标元素
+        const counter = document.getElementById('counter');
+
+        // 函数：数字递增动画
+        function animateCounter(element, target) {
+            const duration = 1500; // 动画持续时间（毫秒）
+            const increment = target / (duration / 16); // 每帧增加的值（假设每帧约 16ms）
+
+            let current = 0;
+
+            function updateCounter() {
+                current += increment;
+                if (current < target) {
+                    element.textContent = Math.floor(current);
+                    requestAnimationFrame(updateCounter);
+                } else {
+                    element.textContent = target; // 确保最终值为目标值
+                }
+            }
+
+            updateCounter();
+        }
+
+        // 函数：检测元素是否在视口中
+        function isInViewport(element) {
+            const rect = element.getBoundingClientRect();
+            return rect.top >= 0 && rect.bottom <= window.innerHeight;
+        }
+
+        // 监听滚动事件
+        let hasAnimated = false; // 防止重复触发动画
+        window.addEventListener('scroll', () => {
+            if (!hasAnimated && isInViewport(counter)) {
+                const target = parseInt(counter.getAttribute('data-target'), 10);
+                animateCounter(counter, target);
+                hasAnimated = true; // 标记动画已触发
+            }
+        });
+
+        const imageBack7 = document.querySelector('.image-back7');
+
+        function isInViewport(element) {
+            const rect = element.getBoundingClientRect();
+            return rect.top >= 0 && rect.bottom <= window.innerHeight;
+        }
+
+        window.addEventListener('scroll', () => {
+            if (isInViewport(imageBack7)) {
+                imageBack7.style.transformOrigin = 'left bottom';
+                imageBack7.style.transform = 'scale(1)'; // 放大到正常大小
+                imageBack7.style.opacity = '1'; // 显示图片
+                imageBack7.style.width = '105%'; // 宽度填满
+            }
+        });
+    </script>
+
+
+    <script>
+        var navbox = document.getElementById("nav");
+        let navbar = document.getElementById("navbar");
+        let items = navbar.children;
+
+        function over(el) {
+            // 更改当前元素的样式  
+            el.children[0].style.color = "#032d30";
+            el.children[0].classList.add("hover");
+
+            if (el.children.length > 1) {
+                let son = el.children[1];
+                if (getComputedStyle(son, null).display === "none") {
+                    // 直接显示子元素  
+                    son.style.display = "block";
+
+                    // 动态调整导航栏高度  
+                    let childCount = son.children.length;
+                    let baseHeight = 8; // 假设基础高度为8rem  
+                    let additionalHeight = childCount * 4.5; // 假设每个子元素高度为4.5rem  
+                    navbox.style.height = `${baseHeight + additionalHeight}rem`;
+                }
+            }
+        }
+
+        function leave(el) {
+            // 仅重置当前元素的样式  
+            el.children[0].style.color = ""; // 移除颜色样式，恢复默认值  
+            el.children[0].classList.remove("hover");
+
+            if (el.children.length > 1) {
+                let son = el.children[1];
+                if (getComputedStyle(son, null).display === "block") {
+                    // 直接隐藏子元素  
+                    son.style.display = "none";
+                    navbox.style.height = "8rem";
+                }
+            }
+        }
+
+        Array.from(items).forEach(item => {
+            item.addEventListener('mouseenter', function () { over(this); });
+            item.addEventListener('mouseleave', function () { leave(this); });
+        });  
+    </script>
+
+
+
+
+
+
+</body>
+
+</html>

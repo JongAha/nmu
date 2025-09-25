@@ -1,0 +1,176 @@
+@font-face {
+  font-family: 'Barlow Condensed';
+  src: url('https://static.igem.wiki/teams/5291/fonts/barlowcondensed/barlowcondensed-extrabolditalic.woff2') format('woff2'),
+      url('https://static.igem.wiki/teams/5291/fonts/barlowcondensed/barlowcondensed-extrabolditalic.woff') format('woff');
+  font-weight: 800;
+  font-style: italic;
+}
+
+@font-face {
+  font-family: 'Barlow Condensed';
+  src: url('https://static.igem.wiki/teams/5291/fonts/barlowcondensed/barlowcondensed-bolditalic.woff2') format('woff2'),
+      url('https://static.igem.wiki/teams/5291/fonts/barlowcondensed/barlowcondensed-bolditalic.woff') format('woff');
+  font-weight: 900;
+  font-style: italic;
+}
+
+@font-face {
+  font-family: 'Barlow Condensed';
+  src: url('https://static.igem.wiki/teams/5291/fonts/barlowcondensed/barlowcondensed-light.woff2') format('woff2'),
+      url('https://static.igem.wiki/teams/5291/fonts/barlowcondensed/barlowcondensed-light.woff') format('woff');
+  font-weight: 300;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'Barlow Condensed';
+  src: url('https://static.igem.wiki/teams/5291/fonts/barlowcondensed/barlowcondensed-mediumitalic.woff2') format('woff2'),
+      url('https://static.igem.wiki/teams/5291/fonts/barlowcondensed/barlowcondensed-mediumitalic.woff') format('woff');
+  font-weight: 500;
+  font-style: italic;
+}
+
+@font-face {
+  font-family: 'Barlow Condensed';
+  src: url('https://static.igem.wiki/teams/5291/fonts/barlowcondensed/barlowcondensed-thinitalic.woff2') format('woff2'),
+      url('https://static.igem.wiki/teams/5291/fonts/barlowcondensed/barlowcondensed-thinitalic.woff') format('woff');
+  font-weight: 100;
+  font-style: italic;
+}
+
+@font-face {
+  font-family: 'Barlow Condensed';
+  src: url('https://static.igem.wiki/teams/5291/fonts/barlowcondensed/barlowcondensed-medium.woff2') format('woff2'),
+      url('https://static.igem.wiki/teams/5291/fonts/barlowcondensed/barlowcondensed-medium.woff') format('woff');
+  font-weight: 500;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'Barlow Condensed';
+  src: url('https://static.igem.wiki/teams/5291/fonts/barlowcondensed/barlowcondensed-semibolditalic.woff2') format('woff2'),
+      url('https://static.igem.wiki/teams/5291/fonts/barlowcondensed/barlowcondensed-semibolditalic.woff') format('woff');
+  font-weight: 600;
+  font-style: italic;
+}
+
+@font-face {
+  font-family: 'Barlow Condensed';
+  src: url('https://static.igem.wiki/teams/5291/fonts/barlowcondensed/barlowcondensed-bolditalic.woff2') format('woff2'),
+      url('https://static.igem.wiki/teams/5291/fonts/barlowcondensed/barlowcondensed-bolditalic.woff') format('woff');
+  font-weight: bold;
+  font-style: italic;
+}
+
+@font-face {
+  font-family: 'Barlow Condensed';
+  src: url('https://static.igem.wiki/teams/5291/fonts/barlowcondensed/barlowcondensed-regular.woff2') format('woff2'),
+      url('https://static.igem.wiki/teams/5291/fonts/barlowcondensed/barlowcondensed-regular.woff') format('woff');
+  font-weight: normal;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'Barlow Condensed';
+  src: url('https://static.igem.wiki/teams/5291/fonts/barlowcondensed/barlowcondensed-italic.woff2') format('woff2'),
+      url('https://static.igem.wiki/teams/5291/fonts/barlowcondensed/barlowcondensed-italic.woff') format('woff');
+  font-weight: normal;
+  font-style: italic;
+}
+
+@font-face {
+  font-family: 'Barlow Condensed';
+  src: url('https://static.igem.wiki/teams/5291/fonts/barlowcondensed/barlowcondensed-extralight.woff2') format('woff2'),
+      url('https://static.igem.wiki/teams/5291/fonts/barlowcondensed/barlowcondensed-extralight.woff') format('woff');
+  font-weight: 200;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'Barlow Condensed';
+  src: url('https://static.igem.wiki/teams/5291/fonts/barlowcondensed/barlowcondensed-bold.woff2') format('woff2'),
+      url('https://static.igem.wiki/teams/5291/fonts/barlowcondensed/barlowcondensed-bold.woff') format('woff');
+  font-weight: bold;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'Barlow Condensed';
+  src: url('https://static.igem.wiki/teams/5291/fonts/barlowcondensed/barlowcondensed-black.woff2') format('woff2'),
+      url('https://static.igem.wiki/teams/5291/fonts/barlowcondensed/barlowcondensed-black.woff') format('woff');
+  font-weight: 900;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'Barlow Condensed';
+  src: url('https://static.igem.wiki/teams/5291/fonts/barlowcondensed/barlowcondensed-extrabold.woff2') format('woff2'),
+      url('https://static.igem.wiki/teams/5291/fonts/barlowcondensed/barlowcondensed-extrabold.woff') format('woff');
+  font-weight: 800;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'Barlow Condensed';
+  src: url('https://static.igem.wiki/teams/5291/fonts/barlowcondensed/barlowcondensed-lightitalic.woff2') format('woff2'),
+      url('https://static.igem.wiki/teams/5291/fonts/barlowcondensed/barlowcondensed-lightitalic.woff') format('woff');
+  font-weight: 300;
+  font-style: italic;
+}
+
+@font-face {
+  font-family: 'Barlow Condensed';
+  src: url('https://static.igem.wiki/teams/5291/fonts/barlowcondensed/barlowcondensed-thin.woff2') format('woff2'),
+      url('https://static.igem.wiki/teams/5291/fonts/barlowcondensed/barlowcondensed-thin.woff') format('woff');
+  font-weight: 100;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'Barlow Condensed';
+  src: url('https://static.igem.wiki/teams/5291/fonts/barlowcondensed/barlowcondensed-lightitalic.woff2') format('woff2'),
+      url('https://static.igem.wiki/teams/5291/fonts/barlowcondensed/barlowcondensed-lightitalic.woff') format('woff');
+  font-weight: 200;
+  font-style: italic;
+}
+
+@font-face {
+  font-family: 'Barlow Condensed';
+  src: url('https://static.igem.wiki/teams/5291/fonts/barlowcondensed/barlowcondensed-semibold.woff2') format('woff2'),
+      url('https://static.igem.wiki/teams/5291/fonts/barlowcondensed/barlowcondensed-semibold.woff') format('woff');
+  font-weight: 600;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'Quicksand';
+  src: url('https://static.igem.wiki/teams/5291/fonts/quicksand/quicksand-medium.woff2') format('woff2'),
+      url('https://static.igem.wiki/teams/5291/fonts/quicksand/quicksand-medium.woff') format('woff');
+  font-weight: 500;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'Quicksand';
+  src: url('https://static.igem.wiki/teams/5291/fonts/quicksand/quicksand-light.woff2') format('woff2'),
+      url('https://static.igem.wiki/teams/5291/fonts/quicksand/quicksand-light.woff') format('woff');
+  font-weight: 300;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'Quicksand';
+  src: url('https://static.igem.wiki/teams/5291/fonts/quicksand/quicksand-regular.woff2') format('woff2'),
+      url('https://static.igem.wiki/teams/5291/fonts/quicksand/quicksand-regular.woff') format('woff');
+  font-weight: normal;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'Quicksand';
+  src: url('https://static.igem.wiki/teams/5291/fonts/quicksand/quicksand-bold.woff2') format('woff2'),
+      url('https://static.igem.wiki/teams/5291/fonts/quicksand/quicksand-bold.woff') format('woff');
+  font-weight: bold;
+  font-style: normal;
+}
+
