@@ -240,13 +240,85 @@
 
         <div class="section8">
             <div class="section8-box">
-                <div class="section8-text">
+                <div class="section8-text"   data-aos="flip-left"
+                        data-aos-easing="ease-out-cubic"
+                        data-aos-duration="2000">
                     <p>Once you swallow the capsule,</p>
                     <p>we will navigate through the tumultuous</p>
                     <p>waves of the digestive system,</p>
                     <p>and an exciting adventure will begin!</p>
                 </div>
-                <img src="https://static.igem.wiki/teams/5847/home/11.webp" alt="">
+                <img data-aos="zoom-in" src="https://static.igem.wiki/teams/5847/home/11.webp" alt="">
+            </div>
+        </div>
+
+        <div class="home-blank"></div>
+
+        <div class="section9">
+            <div class="section9-box">
+                <div class="section9-text">
+                    <p>查看我们的presentation video here!</p>
+                </div>
+                <div class="section9-video">
+                    <img src="./images/videoBg.png" alt="">
+                    <div class="videoBox">
+                        <video width="100%" height="100%" controls>
+                            <source src="https://www.bilibili.com/video/BV1Z1421q7DW?t=197.2&p=5" type="video/mp4">
+                        </video>
+                    </div>
+                    
+                </div>
+            </div>
+        </div>
+
+        <div class="home-blank"></div>
+        <div class="home-blank"></div>
+        <div class="home-blank"></div>
+
+        <div class="section10">
+            <h1 class="section10-title">Explore our project.</h1>
+            
+            <div class="projects-container">
+                <!-- 第一行 -->
+                <div class="row">
+                    <div class="project-item">
+                        <div class="circle">
+                            <img src="https://cdn-icons-png.flaticon.com/512/3242/3242257.png" alt="设计">
+                        </div>
+                        <div class="project-name">设计</div>
+                    </div>
+            
+                    <div class="project-item">
+                        <div class="circle">
+                            <img src="https://cdn-icons-png.flaticon.com/512/2933/2933245.png" alt="工程">
+                        </div>
+                        <div class="project-name">工程</div>
+                    </div>
+            
+                    <div class="project-item">
+                        <div class="circle">
+                            <img src="https://cdn-icons-png.flaticon.com/512/3135/3135710.png" alt="结果">
+                        </div>
+                        <div class="project-name">结果</div>
+                    </div>
+                </div>
+            
+                <!-- 第二行 -->
+                <div class="row">
+                    <div class="project-item">
+                        <div class="circle">
+                            <img src="https://cdn-icons-png.flaticon.com/512/2920/2920277.png" alt="软件">
+                        </div>
+                        <div class="project-name">软件</div>
+                    </div>
+            
+                    <div class="project-item">
+                        <div class="circle">
+                            <img src="https://cdn-icons-png.flaticon.com/512/3135/3135768.png" alt="人类实践">
+                        </div>
+                        <div class="project-name">人类实践</div>
+                    </div>
+                </div>
             </div>
         </div>
 
@@ -431,6 +503,7 @@
         });
 
         const imageBack7 = document.querySelector('.image-back7');
+        const imageFront7 = document.querySelector('.image-front7');
 
         function isInViewport(element) {
             const rect = element.getBoundingClientRect();
@@ -438,11 +511,16 @@
         }
 
         window.addEventListener('scroll', () => {
-            if (isInViewport(imageBack7)) {
+            if (isInViewport(imageFront7)) {
                 imageBack7.style.transformOrigin = 'left bottom';
                 imageBack7.style.transform = 'scale(1)'; // 放大到正常大小
                 imageBack7.style.opacity = '1'; // 显示图片
                 imageBack7.style.width = '105%'; // 宽度填满
+
+                imageFront7.style.transformOrigin = 'left bottom';
+                imageFront7.style.transform = 'scale(1)'; // 放大到正常大小
+                imageFront7.style.opacity = '1'; // 显示图片
+                imageFront7.style.width = '50%'; // 宽度填满
             }
         });
     </script>
