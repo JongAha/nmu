@@ -1,59 +1,45 @@
 // section9 SVG水滴大幅度不规则晃动动画（GSAP+MorphSVG）
-document.addEventListener('DOMContentLoaded', function () {
-    if (window.MorphSVGPlugin && gsap && gsap.registerPlugin) {
-        gsap.registerPlugin(MorphSVGPlugin);
+const circle = document.getElementById('bouncyCircle');
+let count = 0;
+
+circle.addEventListener('click', function (e) {
+
+    // 添加点击反馈类
+    this.classList.add('clicked');
+
+    // 创建涟漪效果
+    createRipple(e);
+
+    // 移除点击反馈类，以便下次点击可以再次触发
+    setTimeout(() => {
+        this.classList.remove('clicked');
+    }, 500);
+
+    // 随机改变一些样式增加趣味性
+    if (count % 5 === 0) {
+        const hue = Math.floor(Math.random() * 360);
+        this.style.background = `linear-gradient(135deg, hsl(${hue}, 70%, 60%), hsl(${hue + 30}, 70%, 60%))`;
     }
-    const droplets = document.querySelectorAll('.section9-droplet');
-    // 多种大幅度水滴形状path
-    const shapes = [
-        // 椭圆
-        'M45,10 Q80,20 70,45 Q80,80 45,70 Q10,80 20,45 Q10,20 45,10 Z',
-        // 圆滑四边形
-        'M45,10 Q80,25 80,45 Q80,70 45,80 Q10,70 10,45 Q10,25 45,10 Z',
-        // 五边形
-        'M45,10 Q80,20 75,45 Q80,80 45,80 Q10,80 15,45 Q10,20 45,10 Z',
-        // 六边形
-        'M45,10 Q70,20 80,45 Q70,70 45,80 Q20,70 10,45 Q20,20 45,10 Z',
-        // 不规则水滴
-        'M45,10 Q85,30 70,50 Q80,85 45,75 Q10,85 20,50 Q5,30 45,10 Z',
-        // 夸张椭圆
-        'M45,10 Q90,45 45,80 Q0,45 45,10 Z',
-        // 原始圆形
-        'M45,10 Q80,10 80,45 Q80,80 45,80 Q10,80 10,45 Q10,10 45,10 Z'
-    ];
-    droplets.forEach(svg => {
-        const path = svg.querySelector('path');
-        if (!path) return;
-        // 缓慢大幅度不规则晃动
-        function morphLoop() {
-            const idx = Math.floor(Math.random() * shapes.length);
-            gsap.to(path, {
-                duration: gsap.utils.random(2.2, 3.2),
-                morphSVG: shapes[idx],
-                ease: 'sine.inOut',
-                onComplete: morphLoop
-            });
-        }
-        morphLoop();
-        // hover变形动画
-        svg.addEventListener('mouseenter', () => {
-            gsap.to(path, {
-                duration: 0.5,
-                morphSVG: shapes[4], // 不规则水滴
-                ease: 'elastic.out(1, 0.5)'
-            });
-            svg.classList.add('gsap-hover');
-        });
-        svg.addEventListener('mouseleave', () => {
-            gsap.to(path, {
-                duration: 0.7,
-                morphSVG: shapes[0], // 椭圆
-                ease: 'expo.out'
-            });
-            svg.classList.remove('gsap-hover');
-        });
-    });
 });
+
+function createRipple(e) {
+    const circle = document.getElementById('bouncyCircle');
+    const ripple = document.createElement('span');
+
+    const diameter = Math.max(circle.clientWidth, circle.clientHeight);
+    const radius = diameter / 2;
+
+    ripple.style.width = ripple.style.height = `${diameter}px`;
+    ripple.style.left = `${e.clientX - circle.getBoundingClientRect().left - radius}px`;
+    ripple.style.top = `${e.clientY - circle.getBoundingClientRect().top - radius}px`;
+    ripple.classList.add('ripple');
+
+    circle.appendChild(ripple);
+
+    setTimeout(() => {
+        ripple.remove();
+    }, 600);
+}
 
 // section10 动画逻辑
 (function(){
@@ -239,6 +225,7 @@ document.addEventListener('DOMContentLoaded', function () {
     function scrollTo(idx) {
         if (isScrolling || idx < 0 || idx >= sections.length) return;
         isScrolling = true;
+        disableScroll();
         current = idx;
         // 计算目标section距离页面顶部的距离
         const rect = sections[idx].getBoundingClientRect();
@@ -246,13 +233,37 @@ document.addEventListener('DOMContentLoaded', function () {
         const targetY = rect.top + scrollTop - 70;
         window.scrollTo({ top: targetY, behavior: 'smooth' });
         updateNav();
-        setTimeout(() => { isScrolling = false; }, 700);
+        // 监听滚动动画结束（约700ms），恢复滚动
+        setTimeout(() => {
+            isScrolling = false;
+            enableScroll();
+        }, 700);
+    }
+    // 禁止滚动的辅助函数
+    function preventDefault(e) { e.preventDefault(); }
+    function disableScroll() {
+        window.addEventListener('wheel', preventDefault, { passive: false, capture: true });
+        window.addEventListener('touchmove', preventDefault, { passive: false, capture: true });
+        window.addEventListener('keydown', keydownBlocker, { capture: true });
+    }
+    function enableScroll() {
+        window.removeEventListener('wheel', preventDefault, { capture: true });
+        window.removeEventListener('touchmove', preventDefault, { capture: true });
+        window.removeEventListener('keydown', keydownBlocker, { capture: true });
+    }
+    function keydownBlocker(e) {
+        // 禁止方向键、PageUp/PageDown、空格、Home/End
+        const keys = ['ArrowUp','ArrowDown','PageUp','PageDown',' ' ,'Home','End'];
+        if (keys.includes(e.key)) e.preventDefault();
     }
 
     // 鼠标滚轮事件
     let wheelTimeout = null;
     window.addEventListener('wheel', function(e) {
-        if (isScrolling) return;
+        if (isScrolling) {
+            e.preventDefault();
+            return;
+        }
         e.preventDefault();
         clearTimeout(wheelTimeout);
         wheelTimeout = setTimeout(() => {
@@ -266,7 +277,10 @@ document.addEventListener('DOMContentLoaded', function () {
 
     // 键盘事件
     window.addEventListener('keydown', function(e) {
-        if (isScrolling) return;
+        if (isScrolling) {
+            e.preventDefault();
+            return;
+        }
         if (e.key === 'ArrowDown' || e.key === 'PageDown') {
             scrollTo(current + 1);
         } else if (e.key === 'ArrowUp' || e.key === 'PageUp') {
@@ -299,8 +313,10 @@ document.addEventListener('DOMContentLoaded', function () {
         // 掉落图片
         const fall1 = section9.querySelector('.section9-fallimg1');
         const fall2 = section9.querySelector('.section9-fallimg2');
+        const fall3 = section9.querySelector('.section9-fallimg3');
         const mid1 = section9.querySelector('.section9-midimg1');
         const mid2 = section9.querySelector('.section9-midimg2');
+        const mid3 = section9.querySelector('.section9-midimg3');
         let fallDone = false;
         // 进入section9时触发掉落
         function triggerFall() {
@@ -308,28 +324,20 @@ document.addEventListener('DOMContentLoaded', function () {
             setTimeout(() => {
                 fall1.classList.add('falling');
                 fall2.classList.add('falling');
+                fall3.classList.add('falling');
                 setTimeout(() => {
                     mid1.classList.add('glow');
                     mid2.classList.add('glow');
+                    mid3.classList.add('glow');
                 }, 800);
             }, 1000);
             fallDone = true;
         }
         // 监听滚动，进入section9时触发
-        window.addEventListener('scroll', function() {
+        window.addEventListener('scroll', function () {
             const rect = section9.getBoundingClientRect();
             if (rect.top < window.innerHeight * 0.5 && rect.bottom > window.innerHeight * 0.3) {
                 triggerFall();
-            }
-        });
-        // 水滴动画hover已用CSS实现
-        // 滚动到下一个section时，四角图片离场
-        window.addEventListener('scroll', function() {
-            const rect = section9.getBoundingClientRect();
-            if (rect.bottom < window.innerHeight * 0.4) {
-                section9.classList.add('out-move');
-            } else {
-                section9.classList.remove('out-move');
             }
         });
     }
@@ -416,7 +424,7 @@ document.addEventListener('DOMContentLoaded', function () {
                         section4Animate.classList.add('show');
                     }, 30);
                 }, 600);
-            }, 5000);
+            }, 3000);
         }
         function leaveSection4() {
             if (section4Timer) {
@@ -528,12 +536,80 @@ document.addEventListener('DOMContentLoaded', function () {
 
 
 //section1动画
+
+
+// section1-letter点击晃动动画（事件委托）
+const section1 = document.querySelector('.section1');
+const lettersWrap = section1.querySelector('.section1-letters');
+if (lettersWrap) {
+    lettersWrap.addEventListener('click', function (e) {
+        const img = e.target.closest('.section1-letter');
+        if (!img) return;
+        if (img._shaking) return;
+        img._shaking = true;
+        // 获取当前transform的translateX和translateY（支持matrix格式）
+        let baseX = 0, baseY = 0;
+        const style = window.getComputedStyle(img);
+        const transform = style.transform;
+        if (transform && transform !== 'none') {
+            // matrix(a, b, c, d, tx, ty)
+            const match = transform.match(/^matrix\(([^,]+),([^,]+),([^,]+),([^,]+),([^,]+),([^,]+)\)$/);
+            if (match) {
+                baseX = parseFloat(match[5]);
+                baseY = parseFloat(match[6]);
+            } else {
+                // matrix3d(a1,...,a13, tx, ty, tz)
+                const match3d = transform.match(/^matrix3d\(([^,]+,){12}([^,]+),([^,]+),([^,]+)\)$/);
+                if (match3d) {
+                    baseX = parseFloat(match3d[13]);
+                    baseY = parseFloat(match3d[14]);
+                }
+            }
+        }
+        let frame = 0;
+        // 晃动后停在终点（如右晃）
+        const keyframes = [
+            { x: baseX - 60, t: 5 },
+            { x: baseX + 60, t: 10 },
+            { x: baseX + 30, t: 7 }
+        ];
+        let total = keyframes.reduce((sum, kf) => sum + kf.t, 0);
+        function animate() {
+            let elapsed = frame;
+            let curr = 0, prevT = 0, prevX = baseX;
+            for (let i = 0; i < keyframes.length; i++) {
+                curr += keyframes[i].t;
+                if (elapsed < curr) {
+                    // 线性插值
+                    let percent = (elapsed - prevT) / keyframes[i].t;
+                    let x = prevX + (keyframes[i].x - prevX) * percent;
+                    img.style.transform = `translateY(${baseY}px) translateX(${x}px)`;
+                    break;
+                }
+                prevT = curr;
+                prevX = keyframes[i].x;
+            }
+            frame++;
+            if (frame <= total) {
+                requestAnimationFrame(animate);
+            } else {
+                img.style.transform = `translateY(${baseY}px) translateX(${keyframes[keyframes.length-1].x}px)`;
+                img._shaking = false;
+            }
+        }
+        animate();
+    });
+}
+
+
 document.addEventListener('DOMContentLoaded', function () {
     const section1 = document.querySelector('.section1');
     if (!section1) return;
     const bgimg = section1.querySelector('.section1-bgimg');
     const letters = Array.from(section1.querySelectorAll('.section1-letter'));
     const svg = section1.querySelector('.section1-lines');
+
+    
 
     // 1. 背景图从下方弹入
     gsap.set(bgimg, {
@@ -763,6 +839,71 @@ document.addEventListener('DOMContentLoaded', function () {
 
 });
 
+
+
+
+// section14-letter点击晃动动画（事件委托）
+const section14 = document.querySelector('.section14');
+const lettersWrap14 = section14.querySelector('.section14-letters');
+if (lettersWrap14) {
+    lettersWrap14.addEventListener('click', function (e) {
+        const img = e.target.closest('.section14-letter');
+        if (!img) return;
+        if (img._shaking) return;
+        img._shaking = true;
+        // 获取当前transform的translateX和translateY（支持matrix格式）
+        let baseX = 0, baseY = 0;
+        const style = window.getComputedStyle(img);
+        const transform = style.transform;
+        if (transform && transform !== 'none') {
+            // matrix(a, b, c, d, tx, ty)
+            const match = transform.match(/^matrix\(([^,]+),([^,]+),([^,]+),([^,]+),([^,]+),([^,]+)\)$/);
+            if (match) {
+                baseX = parseFloat(match[5]);
+                baseY = parseFloat(match[6]);
+            } else {
+                // matrix3d(a1,...,a13, tx, ty, tz)
+                const match3d = transform.match(/^matrix3d\(([^,]+,){12}([^,]+),([^,]+),([^,]+)\)$/);
+                if (match3d) {
+                    baseX = parseFloat(match3d[13]);
+                    baseY = parseFloat(match3d[14]);
+                }
+            }
+        }
+        let frame = 0;
+        // 晃动后停在终点（如右晃）
+        const keyframes = [
+            { x: baseX - 60, t: 5 },
+            { x: baseX + 60, t: 10 },
+            { x: baseX + 30, t: 7 }
+        ];
+        let total = keyframes.reduce((sum, kf) => sum + kf.t, 0);
+        function animate() {
+            let elapsed = frame;
+            let curr = 0, prevT = 0, prevX = baseX;
+            for (let i = 0; i < keyframes.length; i++) {
+                curr += keyframes[i].t;
+                if (elapsed < curr) {
+                    // 线性插值
+                    let percent = (elapsed - prevT) / keyframes[i].t;
+                    let x = prevX + (keyframes[i].x - prevX) * percent;
+                    img.style.transform = `translateY(${baseY}px) translateX(${x}px)`;
+                    break;
+                }
+                prevT = curr;
+                prevX = keyframes[i].x;
+            }
+            frame++;
+            if (frame <= total) {
+                requestAnimationFrame(animate);
+            } else {
+                img.style.transform = `translateY(${baseY}px) translateX(${keyframes[keyframes.length - 1].x}px)`;
+                img._shaking = false;
+            }
+        }
+        animate();
+    });
+}
 
 // section14 动画逻辑
 document.addEventListener('DOMContentLoaded', function () {

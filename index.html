@@ -2,6 +2,18 @@
 <html lang="en">
 
 <head>
+    <style>
+    /* section9 四角图片初始和动画样式 */
+    .section9-corner {
+        transition: transform 1.2s cubic-bezier(0.42,0,0.58,1), opacity 1.2s cubic-bezier(0.42,0,0.58,1);
+        opacity: 0;
+    }
+    .section9-topleft { transform: translate(-80px, -80px); }
+    .section9-topright { transform: translate(80px, -80px); }
+    .section9-bottomleft { transform: translate(-80px, 80px); }
+    .section9-bottomright { transform: translate(80px, 80px); }
+    .section9-corner.in-view { transform: translate(0,0); opacity: 1; }
+    </style>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="./static/base.css">
@@ -87,6 +99,8 @@
         <div class="section1">
             <div class="section1-bgimg-wrap">
                 <img class="section1-bgimg" src="./images/homeBg.png" alt="bg">
+                <img class="section1-bgimg2" src="./images/homeBg2.png" alt="">
+                <img class="section1-bgimg3" src="./images/homeBg3.png" alt="">
             </div>
             <div class="section1-letters-wrap">
                 <svg class="section1-lines" width="100vw" height="40vh"></svg>
@@ -268,21 +282,24 @@
             </div>
             <div class="section9-corner section9-topright">
                 <div class="section9-topright-bg">
-                    <img src="https://static.igem.wiki/teams/5847/web/05.webp" alt="bg">
+                    <img class="section9-topright" src="https://static.igem.wiki/teams/5847/web/05.webp" alt="bg">
                 </div>
                 <div class="section9-topright-mid">
-                    <img class="section9-midimg1" src="https://static.igem.wiki/teams/5847/web/07.webp" alt="mid1">
-                    <img class="section9-midimg2" src="https://static.igem.wiki/teams/5847/web/07.webp" alt="mid2">
+                    <img class="section9-midimg1" src="./images/midTrianle.png" alt="mid1">
+                    <img class="section9-midimg2" src="./images/midTrianle.png" alt="mid2">
+                    <img class="section9-midimg3" src="./images/midTrianle.png" alt="mid3">
                 </div>
                 <div class="section9-topright-fall">
-                    <img class="section9-fallimg1" src="https://static.igem.wiki/teams/5847/web/04.webp" alt="fall1">
-                    <img class="section9-fallimg2" src="https://static.igem.wiki/teams/5847/web/04.webp" alt="fall2">
+                    <img class="section9-fallimg1" src="./images/down.png" alt="fall1">
+                    <img class="section9-fallimg3" src="./images/down.png" alt="fall3">
+                    <img class="section9-fallimg2" src="./images/down.png" alt="fall2">
                 </div>
             </div>
             <div class="section9-corner section9-bottomleft">
-                <svg class="section9-droplet" width="90" height="90" viewBox="0 0 90 90">
-                    <path d="M45,10 Q80,10 80,45 Q80,80 45,80 Q10,80 10,45 Q10,10 45,10 Z" fill="#a9e9e4" />
-                </svg>
+                <div class="animation-area">
+                    <div class="bouncy-circle" id="bouncyCircle">
+                    </div>
+                </div>
             </div>
             <div class="section9-corner section9-bottomright">
                 <img src="https://static.igem.wiki/teams/5847/web/02.webp" alt="corner2">
@@ -290,7 +307,7 @@
             <div class="section9-centertext">
                 <div class="section9-line1">In your gut, we take the lead, <span style="color: #fbecff;font-size: 48px;">seeking out</span></div>
                 <div class="section9-line2"><p style="color: #fbecff;font-size: 48px;">breaking down</p>those lurking microplastics,</div>
-                <div class="section9-line3">turing them into<p style="color: #fbecff;font-size: 48px;border: 4px solid #ffffff;border-radius: 20px;padding: 0 10px 10px 10px;margin-top: 10px;">something they're not</p></div>
+                <div class="section9-line3">turning them into<p style="color: #fbecff;font-size: 48px;border: 4px solid #ffffff;border-radius: 20px;padding: 0 10px 10px 10px;margin-top: 10px;">something harmless</p></div>
             </div>
         </div>
 
@@ -307,11 +324,11 @@
                 <!-- 弹出内容1 -->
                 <div class="section10-popup section10-popup1">
                     <img src="./images/animate1.png" alt="popup1" class="section10-popup-img">
-                    <p class="section10-popup-text">At the same time, we gently <span style="color: #e9b1c6;font-size: 38px;">soothe the intestinal cells</span></p>
+                    <p class="section10-popup-text">At the same time, we gently <br><span style="color: #e9b1c6;font-size: 38px;">soothe the intestinal cells</span></p>
                 </div>
                 <!-- 弹出内容2 -->
                 <div class="section10-popup section10-popup2">
-                    <p class="section10-popup-text">to ensure that our clean - up efforts do not <span style="color: #e9b1c6;font-size: 38px;">disturb our host's peace of mind.</span></p>
+                    <p class="section10-popup-text">to ensure that our clean - up efforts do <br><span style="color: #e9b1c6;font-size: 38px;">not disturb our host's peace of mind.</span></p>
                     <img src="./images/animate2.png" alt="popup2" class="section10-popup-img">
                 </div>
                 <!-- 弹出内容3 -->
@@ -387,6 +404,8 @@
         <div class="section14">
             <div class="section14-bgimg-wrap">
                 <img class="section14-bgimg" src="./images/homeBg.png" alt="bg">
+                <img class="section14-bgimg2" src="./images/homeBg2.png" alt="">
+                <img class="section14-bgimg3" src="./images/homeBg3.png" alt="">
             </div>
             <div class="section14-letters-wrap">
                 <svg class="section14-lines" width="100vw" height="40vh"></svg>
@@ -570,6 +589,36 @@
     <!-- home.js -->
 
     <script>
+    // section9 四角图片进入视口动画（原生JS）
+    document.addEventListener('DOMContentLoaded', function () {
+        var section9 = document.querySelector('.section9');
+        if (!section9) return;
+        var corners = [
+            section9.querySelector('.section9-topleft'),
+            section9.querySelector('.section9-topright'),
+            section9.querySelector('.section9-bottomleft'),
+            section9.querySelector('.section9-bottomright')
+        ];
+        function isInView() {
+            var rect = section9.getBoundingClientRect();
+            return rect.top < window.innerHeight * 0.5 && rect.bottom > window.innerHeight * 0.3;
+        }
+        var lastInView = false;
+        function check() {
+            var inView = isInView();
+            if (inView && !lastInView) {
+                corners.forEach(function(c) { if(c) c.classList.add('in-view'); });
+            } else if (!inView && lastInView) {
+                corners.forEach(function(c) { if(c) c.classList.remove('in-view'); });
+            }
+            lastInView = inView;
+        }
+        // 初始状态
+        corners.forEach(function(c) { if(c) c.classList.remove('in-view'); });
+        window.addEventListener('scroll', check);
+        window.addEventListener('resize', check);
+        setTimeout(check, 200);
+    });
 
 
 
@@ -578,6 +627,7 @@
             duration: 1000,
             easing: 'ease-in-sine',
             delay: 100,
+            once: false
         });
 
 

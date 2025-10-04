@@ -7,6 +7,7 @@
     display: flex;
     flex-direction: column;
     align-items: center;
+    z-index: 1;
     justify-content: flex-end;
 }
 
@@ -33,6 +34,39 @@
     opacity: 0;
 }
 
+.section1-bgimg2 {
+    width: 30vw;
+    height: auto;
+    object-fit: cover;
+    position: absolute;
+    overflow: visible;
+    left: 40vw;
+    bottom: 20vw;
+    z-index: 1;
+    opacity: 1;
+    animation: float 3.5s ease-in-out infinite;
+}
+
+.section1-bgimg3 {
+    width: 20vw;
+    height: auto;
+    object-fit: cover;
+    position: absolute;
+    overflow: visible;
+    left: 80vw;
+    bottom: 15vw;
+    z-index: 1;
+    opacity: 1;
+    transform: scale(1.1);
+    transition: transform 1s ease-in;
+    animation: float 3s ease-in-out infinite;
+}
+
+.section1-bgimg3:hover {
+    animation-play-state: paused;
+    transform: scale(1.3) !important;
+}
+
 .section1-letters-wrap {
     position: absolute;
     left: 0;
@@ -54,17 +88,16 @@
     align-items: flex-end;
     justify-content: space-between;
     z-index: 3;
-    pointer-events: none;
+    pointer-events: auto;
     padding: 0 4vw;
 }
 
 .section1-letter {
-    width: 8vw;
-    min-width: 60px;
-    max-width: 120px;
+    width: 10vw;
+    min-width: 100px;
     height: auto;
-    z-index: 3;
-    pointer-events: none;
+    z-index: 1;
+    pointer-events: auto;
     filter: drop-shadow(0 4px 12px #0006);
     opacity: 0;
 }
@@ -140,7 +173,7 @@
 }
 .section3-content {
     width: 100%;
-    max-width: 1100px;
+    max-width: 1200px;
     margin: 0 auto;
     display: flex;
     flex-direction: column;
@@ -197,14 +230,13 @@
     text-align: center;
 }
 .section3-expand-box {
-    width: 90vw;
-    margin: 0 auto;
     background: #111847;
     border-radius: 30px;
     box-shadow: 0 8px 32px #11184755;
-    min-height: 10vw;
+    min-height: 25vw;
+    margin-bottom: -10vw;
     display: flex;
-    align-items: center;
+    align-items: start;
     justify-content: center;
     overflow: hidden;
     transition: width 1.2s cubic-bezier(.68,-0.55,.27,1.55), height 1.2s cubic-bezier(.68,-0.55,.27,1.55), min-height 1.2s cubic-bezier(.68,-0.55,.27,1.55), border-radius 1.2s cubic-bezier(.68,-0.55,.27,1.55), box-shadow 1.2s;
@@ -289,11 +321,13 @@
     font-weight: bold;
     text-align: start;
     padding-right: 80px;
+    margin-left: 50px;
     margin-bottom: 20px;
+    margin-top: 50px;
     flex: 1;
     opacity: 1;
     transform: translateY(0);
-    transition: opacity 0.6s cubic-bezier(.68,-0.55,.27,1.55), transform 0.7s cubic-bezier(.68,-0.55,.27,1.55);
+    transition: opacity 0.5s, transform 1.0s cubic-bezier(.68,-0.55,.27,1.55);
 }
 .section4-text.hide {
     opacity: 0;
@@ -653,6 +687,7 @@
     z-index: 2;
     border-radius: 10px;
     object-fit: cover;
+    animation: float 4s ease-in-out infinite;
 }
 
 
@@ -853,11 +888,111 @@
 
 .section9-bottomleft {
     left: 0;
-    bottom: 5vw;
+    bottom: -2vw;
     width: 20vw;
     display: flex;
     align-items: flex-end;
 }
+
+  .animation-area {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 400px;
+      position: relative;
+  }
+
+  /* 不规则圆形样式 */
+  .bouncy-circle {
+      width: 200px;
+      height: 200px;
+      background: linear-gradient(135deg, #ff6b6b, #ffa36c);
+      border-radius: 50% 40% 60% 50% / 60% 50% 70% 40%;
+      position: relative;
+      animation: bounce 4s ease-in-out infinite, morph 8s ease-in-out infinite;
+      box-shadow:
+          0 0 30px rgba(255, 107, 107, 0.6),
+          inset 0 0 20px rgba(255, 255, 255, 0.3);
+      cursor: pointer;
+      transition: all 0.3s ease;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: white;
+      font-size: 1.2rem;
+      text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.3);
+      user-select: none;
+  }
+
+  .bouncy-circle:hover {
+      filter: brightness(1.1);
+  }
+
+  /* 弹跳动画 */
+  @keyframes bounce {
+
+      0%,
+      100% {
+          transform: translateY(0) scale(1);
+      }
+
+      25% {
+          transform: translateY(-30px) scale(1.05, 0.95);
+      }
+
+      50% {
+          transform: translateY(0) scale(1);
+      }
+
+      75% {
+          transform: translateY(-15px) scale(1.02, 0.98);
+      }
+  }
+
+  /* 形状变化动画 */
+  @keyframes morph {
+
+      0%,
+      100% {
+          border-radius: 50% 40% 60% 50% / 60% 50% 70% 40%;
+      }
+
+      25% {
+          border-radius: 60% 40% 50% 60% / 40% 60% 50% 70%;
+      }
+
+      50% {
+          border-radius: 40% 60% 50% 40% / 50% 40% 60% 50%;
+      }
+
+      75% {
+          border-radius: 50% 50% 60% 40% / 60% 60% 40% 50%;
+      }
+  }
+
+  /* 点击反馈动画 */
+  @keyframes click {
+      0% {
+          transform: scale(1);
+      }
+
+      50% {
+          transform: scale(0.8);
+      }
+
+      100% {
+          transform: scale(1);
+      }
+  }
+
+  /* 点击时的效果 */
+  .bouncy-circle.clicked {
+      animation: click 0.5s ease;
+      background: linear-gradient(135deg, #4ecdc4, #6a89cc);
+      box-shadow:
+          0 0 40px rgba(78, 205, 196, 0.8),
+          inset 0 0 20px rgba(255, 255, 255, 0.4);
+  }
 
 .section9-bottomright {
     right: 0;
@@ -885,9 +1020,9 @@
 
 .section9-topright-mid {
     position: absolute;
-    top: -60px;
-    right: 5vw;
-    width: 80%;
+    top: 10vw;
+    right: 3vw;
+    width: 70%;
     /* transform: scale(6); */
     z-index: 2;
     display: flex;
@@ -896,8 +1031,9 @@
 }
 
 .section9-midimg1,
-.section9-midimg2 {
-    width: 60%;
+.section9-midimg2,
+.section9-midimg3 {
+    width: 23%;
     margin-bottom: 10px;
     box-shadow: none;
     transition: box-shadow 0.5s;
@@ -905,9 +1041,9 @@
 
 .section9-topright-fall {
     position: absolute;
-    top: -120px;
-    right: 5vw;
-    width: 80%;
+    top: -110px;
+    right: 3vw;
+    width: 70%;
     z-index: 3;
     display: flex;
     flex-direction: row;
@@ -916,8 +1052,9 @@
 }
 
 .section9-fallimg1,
-.section9-fallimg2 {
-    width: 60%;
+.section9-fallimg2,
+.section9-fallimg3 {
+    width: 23%;
     margin-bottom: 10px;
     opacity: 0;
     transform: translateY(-120px) scale(0.5);
@@ -926,18 +1063,20 @@
 
 .section9-midimg1,
 .section9-fallimg1 {
-    margin-left: 100px;
+    margin-left: 250px;
 }
 
 .section9-fallimg1.falling,
-.section9-fallimg2.falling {
+.section9-fallimg2.falling,
+.section9-fallimg3.falling {
     opacity: 1;
     transform-origin: top;
     transform: translateY(120px) scale(0.8);
 }
 
 .section9-midimg1.glow,
-.section9-midimg2.glow {
+.section9-midimg2.glow,
+.section9-midimg3.glow {
     filter: drop-shadow(0px 0px 20px #08fae6);
 }
 
@@ -966,7 +1105,7 @@
     margin-left: 25vw;
 }
 .section9-line3 {
-    max-width: 600px;
+    max-width: 550px;
 }
 
 /* section9 四角图片滚动离场动画 */
@@ -1087,7 +1226,7 @@
 .section10-popup-text {
     font-size: 28px;
     color: #ffffff;
-    max-width: 40vw;
+    max-width: 50vw;
     border-radius: 28px;
     font-weight: bold;
 }
@@ -1234,6 +1373,7 @@
     opacity: 1;
     transform: translateX(0);
     transition-delay: 4.6s;
+    z-index: 10;
 }
 
 .section11-img {
@@ -1413,7 +1553,6 @@
 
 
 
-
 .section14 {
     background: #111847;
     min-height: 100vh;
@@ -1423,13 +1562,14 @@
     display: flex;
     flex-direction: column;
     align-items: center;
+    z-index: 1;
     justify-content: flex-end;
 }
 
 .section14-bgimg-wrap {
     position: absolute;
     left: 0;
-    bottom: -15vw;
+    bottom: -10vw;
     width: 100vw;
     height: 40vh;
     z-index: 1;
@@ -1447,6 +1587,39 @@
     bottom: 0;
     z-index: 1;
     opacity: 0;
+}
+
+.section14-bgimg2 {
+    width: 30vw;
+    height: auto;
+    object-fit: cover;
+    position: absolute;
+    overflow: visible;
+    left: 40vw;
+    bottom: 20vw;
+    z-index: 1;
+    opacity: 1;
+    animation: float 3.5s ease-in-out infinite;
+}
+
+.section14-bgimg3 {
+    width: 20vw;
+    height: auto;
+    object-fit: cover;
+    position: absolute;
+    overflow: visible;
+    left: 80vw;
+    bottom: 15vw;
+    z-index: 1;
+    opacity: 1;
+    transform: scale(1.1);
+    transition: transform 1s ease-in;
+    animation: float 3s ease-in-out infinite;
+}
+
+.section14-bgimg3:hover {
+    animation-play-state: paused;
+    transform: scale(1.3) !important;
 }
 
 .section14-letters-wrap {
@@ -1470,17 +1643,16 @@
     align-items: flex-end;
     justify-content: space-between;
     z-index: 3;
-    pointer-events: none;
+    pointer-events: auto;
     padding: 0 4vw;
 }
 
 .section14-letter {
-    width: 8vw;
-    min-width: 60px;
-    max-width: 120px;
+    width: 10vw;
+    min-width: 100px;
     height: auto;
-    z-index: 3;
-    pointer-events: none;
+    z-index: 1;
+    pointer-events: auto;
     filter: drop-shadow(0 4px 12px #0006);
     opacity: 0;
 }
