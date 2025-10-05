@@ -323,12 +323,22 @@ function createRipple(e) {
             if (fallDone) return;
             setTimeout(() => {
                 fall1.classList.add('falling');
-                fall2.classList.add('falling');
-                fall3.classList.add('falling');
                 setTimeout(() => {
                     mid1.classList.add('glow');
-                    mid2.classList.add('glow');
-                    mid3.classList.add('glow');
+                }, 800);
+
+                setTimeout(() => {
+                    fall3.classList.add('falling');
+                    setTimeout(() => {
+                        mid2.classList.add('glow');
+                    }, 800);
+                }, 400);
+                
+                setTimeout(() => {
+                    fall2.classList.add('falling');
+                    setTimeout(() => {
+                        mid3.classList.add('glow');
+                    }, 800);
                 }, 800);
             }, 1000);
             fallDone = true;
@@ -424,7 +434,7 @@ function createRipple(e) {
                         section4Animate.classList.add('show');
                     }, 30);
                 }, 600);
-            }, 3000);
+            }, 2000);
         }
         function leaveSection4() {
             if (section4Timer) {
